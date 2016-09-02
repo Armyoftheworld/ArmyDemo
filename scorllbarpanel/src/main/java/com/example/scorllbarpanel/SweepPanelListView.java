@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AbsListView;
@@ -29,6 +30,7 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
 
     public SweepPanelListView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        super.setOnScrollListener(this);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SweepPanelListView);
         int layoutId = a.getResourceId(R.styleable.SweepPanelListView_scrollBarPanel, R.layout.scrollbarpanel);
@@ -36,9 +38,15 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
         int outAnimId = a.getResourceId(R.styleable.SweepPanelListView_scrollBarPanelOutAnimation, R.anim.out);
         a.recycle();
 
-        setOnScrollListener(this);
+        mScrollBarPanel = LayoutInflater.from(context).inflate(layoutId, this, false);
+        mScrollBarPanel.setVisibility(GONE);
+        //提醒自定义View重新调整大小及绘制
+        requestLayout();
+
         mInAnimation = AnimationUtils.loadAnimation(context, inAnimId);
         mOutAnimation = AnimationUtils.loadAnimation(context, outAnimId);
+        long durationMills = ViewConfiguration.getScrollBarFadeDuration();
+        mOutAnimation.setDuration(durationMills);
         mOutAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -55,11 +63,6 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
             public void onAnimationRepeat(Animation animation) {
             }
         });
-
-        mScrollBarPanel = LayoutInflater.from(context).inflate(layoutId, null);
-        mScrollBarPanel.setVisibility(GONE);
-        requestLayout();
-
     }
 
     @Override
@@ -73,11 +76,11 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
         if (mScrollBarPanel != null && onPositionChangedListener != null) {
             /**
              * computeVerticalScrollRange();0~10000,纵向滚动条代表的整个纵向范围
-             computeVerticalScrollExtent();滚动条在纵向范围内他自身的厚度的幅度
+             computeVerticalScrollExtent();滚动条在纵向范围内他自身的厚度的幅度，相当于scrollBar的高度
              computeVerticalScrollOffset();滚动条的纵向幅度的位置
              */
             //滑块的厚度   滑块的厚度/ListView的高度 = extend/Range
-            int height = Math.round(getMeasuredHeight() * computeHorizontalScrollExtent() / computeVerticalScrollRange());
+            int height = Math.round(getMeasuredHeight() * computeVerticalScrollExtent() / computeVerticalScrollRange());
 
             //滑块正中间的Y坐标
             //滑块的高度/extent = thumbOffset/offset
@@ -86,7 +89,10 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
 
             int left = getMeasuredWidth() - mScrollBarPanel.getMeasuredWidth() - getVerticalScrollbarWidth();
             mScrollBarPanelPosition = thumbOffset - mScrollBarPanel.getHeight() / 2;
-            mScrollBarPanel.layout(left, mScrollBarPanelPosition, left + mScrollBarPanel.getMeasuredWidth(), mScrollBarPanelPosition + mScrollBarPanel.getMeasuredHeight());
+            mScrollBarPanel.layout(left,
+                    mScrollBarPanelPosition,
+                    left + mScrollBarPanel.getMeasuredWidth(),
+                    mScrollBarPanelPosition + mScrollBarPanel.getMeasuredHeight());
 
             for (int i = 0; i < getChildCount(); i++) {
                 View childView = getChildAt(i);
@@ -99,9 +105,7 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
                             onPositionChangedListener.onPositionChanged(this, mLastPositon, mScrollBarPanel);
 
                             //因为text宽度会改变，需要重新测量
-                            if (isDraw) {
-                                measureChild(mScrollBarPanel, mWidthMessureSpec, mHeightMeasureSpec);
-                            }
+                            measureChild(mScrollBarPanel, mWidthMessureSpec, mHeightMeasureSpec);
                         }
                         break;
                     }
@@ -141,7 +145,7 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
         //计算测量尺寸（自己listview，panel的尺寸也计算好，后续还需要吧panel摆放到适合的位置）
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         //计算panel的尺寸
-        if (mScrollBarPanel != null && getAdapter() != null && isDraw) {
+        if (mScrollBarPanel != null && getAdapter() != null) {
             mWidthMessureSpec = widthMeasureSpec;
             mHeightMeasureSpec = heightMeasureSpec;
             measureChild(mScrollBarPanel, widthMeasureSpec, heightMeasureSpec);
@@ -160,15 +164,12 @@ public class SweepPanelListView extends ListView implements AbsListView.OnScroll
         }
     }
 
-    private boolean isDraw = false;
-
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         //在listview绘制的时候在上面加一个自己绘制的部分盖在上面
         if (mScrollBarPanel != null && mScrollBarPanel.getVisibility() == VISIBLE) {
             drawChild(canvas, mScrollBarPanel, getDrawingTime());
-            isDraw = true;
         }
     }
 
