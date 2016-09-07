@@ -1,2 +1,3 @@
 include ':AnimationPath', ':myannotation', ':scorllbarpanel'
 include ':dnsindywaterfalls'
+include ':dnsindysvg'
