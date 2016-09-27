@@ -6,16 +6,16 @@
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="C:\Program Files\Android\Android Studio\gradle\gradle-2.10" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AnimationPath" />
-          </set>
-        </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/AnimationPath" />
+            <option value="$PROJECT_DIR$/activityfragmentinteractive" />
+            <option value="$PROJECT_DIR$/dnsindysvg" />
+            <option value="$PROJECT_DIR$/dnsindywaterfalls" />
+            <option value="$PROJECT_DIR$/myannotation" />
+            <option value="$PROJECT_DIR$/scorllbarpanel" />
           </set>
         </option>
       </GradleProjectSettings>
