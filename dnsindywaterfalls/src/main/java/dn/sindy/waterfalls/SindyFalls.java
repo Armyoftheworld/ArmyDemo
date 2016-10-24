@@ -1,22 +1,19 @@
 package dn.sindy.waterfalls;
 
-import java.io.File;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v4.util.ArrayMap;
-import android.support.v4.view.ViewGroupCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnTouchListener;
 import android.widget.TextView;
 
 public class SindyFalls extends ScrollView implements OnTouchListener {
@@ -96,10 +93,8 @@ public class SindyFalls extends ScrollView implements OnTouchListener {
             double ratio = bitmap.getWidth() / (columWidth * 1.0f);
             int scaleHeight = (int) (bitmap.getHeight() / ratio);
             addImageToView(bitmap, scaleHeight, columWidth, position);
-
         }
     }
-
 
     private void addImageToView(Bitmap result, int scaleHeight, int columWidth, int position) {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(columWidth, scaleHeight);
@@ -113,7 +108,6 @@ public class SindyFalls extends ScrollView implements OnTouchListener {
         LinearLayout layout = findMinLinerlayout(columWidth, scaleHeight);
         layout.addView(view);
     }
-
 
     private LinearLayout findMinLinerlayout(int columWidth2, int scaleHeight) {
         if (firstHeight < secondHeight) {
@@ -132,13 +126,8 @@ public class SindyFalls extends ScrollView implements OnTouchListener {
                 thirdHeight += scaleHeight;
                 return thirdColum;
             }
-
-
         }
-
-
     }
-
 
     private ArrayMap<String, Object> loadImages(ImageBean imageBean) {
         // TODO Auto-generated method stub
