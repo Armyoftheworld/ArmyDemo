@@ -10,3 +10,5 @@ svg：自定义形状
 activityfragmentinteractive：activity和fragment间的交互
 
 parallaxscrollview：可拉伸的头部， scrollview有问题
+
+mvp：mvp初体验，添加泛型
