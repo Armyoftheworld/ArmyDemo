@@ -1,4 +1,6 @@
 include ':AnimationPath', ':myannotation', ':scorllbarpanel', ':parallaxscrollview'
 include  ':activityfragmentinteractive'
 include ':dnsindywaterfalls'
+include ':AnimationPath', ':myannotation', ':scorllbarpanel', ':activityfragmentinteractive', ':mvp'
+include ':dnsindywaterfalls', ":parallaxscrollview"
 include ':dnsindysvg'
