@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '24.0.3'
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
         applicationId "com.juziwl.autosmsinput"
-        minSdkVersion 14
-        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
 
@@ -22,6 +22,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile rootProject.ext.dependencies["appcompat-v7"]
     compile 'com.karumi:dexter:2.3.1'
 }
