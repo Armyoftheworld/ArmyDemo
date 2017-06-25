@@ -1,10 +1,8 @@
 package com.example.myannotation.utils;
 
 import android.app.Activity;
-import android.support.v4.app.NavUtils;
 import android.view.View;
 
-import com.example.myannotation.R;
 import com.example.myannotation.annotation.ContextView;
 import com.example.myannotation.annotation.EventBase;
 import com.example.myannotation.annotation.ViewInject;
