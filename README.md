@@ -15,3 +15,6 @@ mvp：mvp初体验，添加泛型
 
 autosmsinput：验证码自动填入
 
+YRotateAnimation：绕Y轴旋转的动画
+
+autoinstallapp：自动安装软件并打开

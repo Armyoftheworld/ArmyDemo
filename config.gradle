@@ -1,0 +1,90 @@
+ext{
+    android = [
+            compileSdkVersion : 25,
+            buildToolsVersion : '25.0.3',
+            applicationId     : "com.juziwl.xiaoxin",
+            minSdkVersion     : 14,
+            targetSdkVersion  : 22,
+            versionCode       : 24,
+            versionName       : "2.0.0"
+    ]
+
+    def dependVersion = [
+            support     : "25.1.0",
+            retrofit    : "2.2.0",
+            okhttp      : "3.7.0",
+            dagger2     : "2.5",
+            butterknife : "8.5.1",
+            blockcanary : "1.5.0",
+            leakcanary  : "1.5",
+            stetho      : "1.5.0",
+            rxlifecycle : "1.0",
+            rxbinding   : "1.0.1"
+    ]
+
+    dependencies = [
+            //base
+            "appcompat-v7"              : "com.android.support:appcompat-v7:${dependVersion.support}",
+            "cardview-v7"               : "com.android.support:cardview-v7:${dependVersion.support}",
+            "recyclerview-v7"           : "com.android.support:recyclerview-v7:${dependVersion.support}",
+            "design"                    : "com.android.support:design:${dependVersion.support}",
+            "support-v4"                : "com.android.support:support-v4:${dependVersion.support}",
+            "multidex"                  : "com.android.support:multidex:1.0.1",
+
+            //glide
+            "glide"                     : "com.github.bumptech.glide:glide:3.7.0",
+            "glide-okhttp3-integration" : "com.github.bumptech.glide:okhttp3-integration:1.4.0@aar",
+            "glide-transformations"     : "jp.wasabeef:glide-transformations:2.0.2",
+
+            //rx
+            "rxjava"                    : "io.reactivex:rxjava:1.1.6",
+            "rxandroid"                 : "io.reactivex:rxandroid:1.2.1",
+            "rxpermissions"             : "com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar",
+            "rxbinding"                 : "com.jakewharton.rxbinding:rxbinding:${dependVersion.rxbinding}",
+            "rxbinding-support-v4"      : "com.jakewharton.rxbinding:rxbinding-support-v4:${dependVersion.rxbinding}",
+            "rxlifecycle"               : "com.trello:rxlifecycle:${dependVersion.rxlifecycle}",
+            "rxlifecycle-android"       : "com.trello:rxlifecycle-android:${dependVersion.rxlifecycle}",
+
+            //retrofit
+            "fastjson"                  : "com.alibaba:fastjson:1.1.56.android",
+            "retrofit"                  : "com.squareup.retrofit2:retrofit:${dependVersion.retrofit}",
+            "retrofit-converter-scalars": "com.squareup.retrofit2:converter-scalars:${dependVersion.retrofit}",
+            "retrofit-adapter-rxjava"   : "com.squareup.retrofit2:adapter-rxjava:${dependVersion.retrofit}",
+            "okhttp"                    : "com.squareup.okhttp3:okhttp:${dependVersion.okhttp}",
+            "okhttp-logging-interceptor": "com.squareup.okhttp3:logging-interceptor:${dependVersion.okhttp}",
+
+            //dagger
+            "dagger"                    : "com.google.dagger:dagger:${dependVersion.dagger2}",
+            "dagger-compiler"           : "com.google.dagger:dagger-compiler:${dependVersion.dagger2}",
+            "javax.annotation-api"      : "javax.annotation:javax.annotation-api:1.2",
+
+            //butterknife
+            "butterknife"               : "com.jakewharton:butterknife:${dependVersion.butterknife}",
+            "butterknife-compiler"      : "com.jakewharton:butterknife-compiler:${dependVersion.butterknife}",
+
+            //logger
+            "logger"                    : "com.orhanobut:logger:1.15",
+
+            //blockcanary
+            "blockcanary-android"       : "com.github.markzhai:blockcanary-android:${dependVersion.blockcanary}",
+            "blockcanary-no-op"         : "com.github.markzhai:blockcanary-no-op:${dependVersion.blockcanary}",
+
+            //leakcanary
+            "leakcanary-android"        : "com.squareup.leakcanary:leakcanary-android:${dependVersion.leakcanary}",
+            "leakcanary-android-no-op"  : "com.squareup.leakcanary:leakcanary-android-no-op:${dependVersion.leakcanary}",
+
+            //stetho
+            "stetho"                    : "com.facebook.stetho:stetho:${dependVersion.stetho}",
+            "stetho-okhttp3"            : "com.facebook.stetho:stetho-okhttp3:${dependVersion.stetho}",
+
+            //greendao
+            "greendao"                  : "org.greenrobot:greendao:3.2.0",
+            "GreenDaoUpgradeHelper"     : "com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0",
+
+            //友盟
+            "umeng-analytics"           : "com.umeng.analytics:analytics:latest.integration",
+
+            //nineoldandroids
+            "nineoldandroids"           : "com.nineoldandroids:library:2.4.0"
+    ]
+}
