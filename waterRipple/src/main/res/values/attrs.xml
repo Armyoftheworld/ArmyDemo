@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WaterRippleView">
+        <attr name="waveHeight" format="dimension" />
+        <attr name="waveWidth" format="dimension" />
+        <attr name="waveCount" format="integer">
+            <enum name="ONE" value="1" />
+            <enum name="TWO" value="2" />
+        </attr>
+        <attr name="waveColors" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="MyProgressBar">
+        <attr name="progress" format="integer" />
+        <attr name="maxProgress" format="integer" />
+        <!-- 测量需要的中间的字符串 -->
+        <attr name="measureString" format="string" />
+        <attr name="bgProgressColor" format="color" />
+        <attr name="progressStartColor" format="color" />
+        <attr name="progressEndColor" format="color" />
+    </declare-styleable>
+</resources>

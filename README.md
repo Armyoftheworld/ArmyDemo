@@ -21,3 +21,4 @@ autoinstallapp：自动安装软件并打开
 
 inject系列：简单的编译时注解
 
+waterRipple：一个水波纹效果一以及一个简单进度条

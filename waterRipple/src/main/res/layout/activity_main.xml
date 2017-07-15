@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.army.waterripple.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+    <com.army.waterripple.WaterRippleView
+        android:id="@+id/wave"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#466dff"
+        app:waveColors="#7E92FF;#FFFFFF"
+        app:waveCount="TWO"
+        app:waveHeight="30dp" />
+
+    <com.army.waterripple.MyProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        app:maxProgress="100"
+        app:progress="38"
+        app:measureString="50%"
+        app:bgProgressColor="#f5f7fa"
+        app:progressStartColor="#46ccff"
+        app:progressEndColor="#466eff"
+        />
+
+</LinearLayout>

@@ -1,3 +1,3 @@
-include ':AnimationPath', ':myannotation', ':scorllbarpanel', ':activityfragmentinteractive', ':mvp', ':bouncemenu', ':YRotateAnimation', ':autosmsinput', ':autoinstallapp', ':inject-annotation', ':inject-compiler', ':inject', ':inject-test'
+include ':AnimationPath', ':myannotation', ':scorllbarpanel', ':activityfragmentinteractive', ':mvp', ':bouncemenu', ':YRotateAnimation', ':autosmsinput', ':autoinstallapp', ':inject-annotation', ':inject-compiler', ':inject', ':inject-test', ':waterRipple'
 include ':dnsindywaterfalls', ":parallaxscrollview"
 include ':dnsindysvg'
