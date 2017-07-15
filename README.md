@@ -18,3 +18,6 @@ autosmsinput：验证码自动填入
 YRotateAnimation：绕Y轴旋转的动画
 
 autoinstallapp：自动安装软件并打开
+
+inject系列：简单的编译时注解
+

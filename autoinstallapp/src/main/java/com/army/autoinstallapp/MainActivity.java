@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void download(View view) {
         DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-        Uri uri = Uri.parse("http://192.168.1.105:8080/Test/1.1.apk");
+        Uri uri = Uri.parse("http://192.168.1.100:8080/Test/1.1.apk");
         DownloadManager.Request request = new DownloadManager.Request(uri);
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "1.1.apk");
         if (file.exists()) {
