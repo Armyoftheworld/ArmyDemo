@@ -29,6 +29,7 @@ public class WaterRippleView extends View {
     private Path[] paths;
     private int offset = 0, offset2 = 0;
     private ValueAnimator animator, animator2;
+    private int bgColor = Color.parseColor("#466dff");
 
     public WaterRippleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -77,6 +78,7 @@ public class WaterRippleView extends View {
     protected void onDraw(Canvas canvas) {
         if (width == 0 || height == 0) return;
 
+        canvas.drawColor(bgColor);
         canvas.translate(0, height / 2);
         for (int i = 0; i < waveCount; i++) {
             Path path = paths[i];

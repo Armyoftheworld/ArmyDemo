@@ -1,7 +1,9 @@
 package com.army.waterripple;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -26,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
-        timer.schedule(timerTask, 1000, 200);
+//        timer.schedule(timerTask, 1000, 200);
+    }
+
+    public void onClick(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
+                .setCancelable(false)
+                .setView(getLayoutInflater().inflate(R.layout.layout_download_dialog, null));
+        builder.show().getWindow().setBackgroundDrawable(null);
     }
 }

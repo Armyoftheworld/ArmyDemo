@@ -30,7 +30,7 @@ public class MyProgressBar extends View {
     private int bgProgressColor = Color.parseColor("#f5f7fa");
     private int progressStartColor, progressEndColor;
     private LinearGradient linearGradient;
-    private int padding = dp2px(2);
+    private int padding = 0;
     private int progress = 0, maxProgress = 0;
     private String measureString;
     private int unReachHalfTextColor = Color.parseColor("#333333"),

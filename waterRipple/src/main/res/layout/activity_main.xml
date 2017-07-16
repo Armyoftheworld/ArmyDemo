@@ -10,13 +10,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Hello World!"
+        android:clickable="true"
+        android:onClick="onClick"/>
 
     <com.army.waterripple.WaterRippleView
         android:id="@+id/wave"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="#466dff"
+        android:layout_height="30dp"
         app:waveColors="#7E92FF;#FFFFFF"
         app:waveCount="TWO"
         app:waveHeight="30dp" />
