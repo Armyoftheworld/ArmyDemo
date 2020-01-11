@@ -116,7 +116,6 @@ public class BindViewProcessor extends AbstractProcessor {
             ClassName viewBinder = ClassName.get("com.army.inject", "ViewBinder");
             TypeSpec.Builder result = TypeSpec.classBuilder(compile + "$$ViewBinder")
                     .addModifiers(Modifier.PUBLIC)
-                    .addTypeVariable(TypeVariableName.get("T", className))//添加<T extends className>
                     .addSuperinterface(ParameterizedTypeName.get(viewBinder, className))//viewBinder：接口名，className：接口需要的泛型
                     ;
 
